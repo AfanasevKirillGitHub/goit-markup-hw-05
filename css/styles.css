@@ -41,6 +41,9 @@
    padding-bottom: 90px;
    padding-top: 90px;
 }
+*:focus-visible {
+   outline: none;
+}
 
 /* Header */
 .header {
@@ -604,9 +607,12 @@
    position: absolute;
    top: 50%;
    left: 50%;
+   overflow-y: auto;
 
-   width: 528px;
-   height: 581px;
+   /* width: 528px;
+   max-height: 581px;
+   height: 100%; */
+   padding: 40px;
 
    background-color: var(--basic-white);
    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -629,7 +635,7 @@
    border: 1px solid rgba(0, 0, 0, 0.1);
    background-color: var(--basic-white);
    cursor: pointer;
-
+   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-close-modal {
@@ -637,4 +643,98 @@
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
+   
+}
+
+.btn-close-modal:hover,
+.btn-close-modal:focus {
+   fill: var(--accent-color);
+}
+
+.modal-title {
+   font-size: 20px;
+   line-height: 1.15;
+   text-align: center;
+   margin-bottom: 12px;
+   
+   color: var(--title-text-color);
+}
+.form-field {
+   margin-bottom: 10px ;
+}
+
+.form-field:nth-last-child(-n + 1) {
+   margin-bottom: 0;
+}
+.form-field-label {
+   display: block;
+   margin-bottom: 4px;
+   font-size: 12px;
+   line-height: 1.16;
+   letter-spacing: 0.01em;
+   
+   color:var(--primary-text-color);
+}
+.form-field-input {
+   width: 100%;
+   min-height: 40px;
+   padding: 12px 42px;
+   border: 1px solid rgba(33, 33, 33, 0.2);
+   border-radius: 4px;
+   border-color: var(--primary-text-color);
+   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-field-input:focus-within {
+   border-color: var(--accent-color);
+}
+
+.form-field-textarea {
+   display: block;
+   width: 100%;
+   min-height: 120px;
+   border: 1px solid rgba(33, 33, 33, 0.2);
+   border-radius: 4px;
+   color: var(--primary-text-color);
+   padding: 12px 16px;
+   margin-bottom: 20px;
+   resize: none;
+   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form-field-textarea:focus-within {
+   border-color: var(--accent-color);
+}
+
+.form-field-textarea::placeholder {
+   color: rgba(117, 117, 117, 0.5);
+}
+
+.form-terms {
+   position: relative;
+   display: flex;
+   align-items: center;
+   margin-bottom: 30px;
+   padding-left: 24px;
+   line-height: 1.71;
+   color: var(--primary-text-color);
+   }
+.visually-hidden {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   margin: -1px;
+   border: 0;
+   padding: 0;
+   white-space: nowrap;
+   clip-path: inset(100%);
+   clip: rect(0 0 0 0);
+   overflow: hidden;
+   }
+.form-terms-link {
+color: var(--accent-color);
+   }
+.submit-btn {
+   margin: auto;
+   display: block;
+
 }
